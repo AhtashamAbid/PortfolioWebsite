@@ -705,8 +705,34 @@ section {
 .contact-text {
     font-size: 1.2rem;
     color: rgba(245, 245, 245, 0.8);
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     line-height: 1.8;
+}
+
+.contact-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    color: rgba(245, 245, 245, 0.9);
+    margin-bottom: 3rem;
+}
+
+.contact-number i {
+    color: var(--volt-orange);
+    font-size: 1.2rem;
+}
+
+.contact-number a {
+    color: var(--volt-orange);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-number a:hover {
+    color: var(--solar-flare);
+    text-decoration: underline;
 }
 
 .social-links {
