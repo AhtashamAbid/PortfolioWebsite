@@ -109,30 +109,6 @@ window.addEventListener('load', () => {
     });
 });
 
-// Add cursor trail effect (optional - can be disabled if too distracting)
-let cursorTrail = [];
-const maxTrailLength = 10;
-
-document.addEventListener('mousemove', (e) => {
-    // Create a subtle orange glow at cursor position
-    const trail = document.createElement('div');
-    trail.style.position = 'fixed';
-    trail.style.left = e.clientX + 'px';
-    trail.style.top = e.clientY + 'px';
-    trail.style.width = '10px';
-    trail.style.height = '10px';
-    trail.style.borderRadius = '50%';
-    trail.style.background = 'radial-gradient(circle, rgba(255, 69, 0, 0.5), transparent)';
-    trail.style.pointerEvents = 'none';
-    trail.style.zIndex = '9999';
-    trail.style.transition = 'opacity 0.5s ease';
-    document.body.appendChild(trail);
-    
-    setTimeout(() => {
-        trail.style.opacity = '0';
-        setTimeout(() => trail.remove(), 500);
-    }, 100);
-});
 
 // Console easter egg - Konami Code
 let konamiCode = [];
