@@ -93,6 +93,39 @@ function typeWriter(element, text, speed = 100) {
     type();
 }
 
+// Cursor trail effect
+const cursorTrail = [];
+const trailLength = 20;
+
+document.addEventListener('mousemove', (e) => {
+    const dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    dot.style.left = e.clientX + 'px';
+    dot.style.top = e.clientY + 'px';
+    document.body.appendChild(dot);
+    
+    cursorTrail.push(dot);
+    
+    if (cursorTrail.length > trailLength) {
+        const oldDot = cursorTrail.shift();
+        if (oldDot && oldDot.parentNode) {
+            oldDot.parentNode.removeChild(oldDot);
+        }
+    }
+    
+    setTimeout(() => {
+        if (dot && dot.parentNode) {
+            dot.style.opacity = '0';
+            dot.style.transform = 'scale(0)';
+            setTimeout(() => {
+                if (dot && dot.parentNode) {
+                    dot.parentNode.removeChild(dot);
+                }
+            }, 300);
+        }
+    }, 100);
+});
+
 // Initialize animations when page loads
 window.addEventListener('load', () => {
     // Add fade-in animation to sections

@@ -138,7 +138,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: none;
     margin-top: 70px;
     padding: 2rem 0;
 }
@@ -436,11 +436,37 @@ section {
     padding: 100px 0;
 }
 
+.project-category {
+    margin-bottom: 4rem;
+}
+
+.project-category:last-child {
+    margin-bottom: 0;
+}
+
+.category-subtitle {
+    font-family: 'Teko', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    text-transform: uppercase;
+    text-align: left;
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+    color: var(--volt-orange);
+    letter-spacing: 2px;
+    position: relative;
+    padding-left: 1rem;
+    border-left: 3px solid var(--volt-orange);
+}
+
+.category-subtitle:first-child {
+    margin-top: 0;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin-top: 3rem;
+    margin-top: 0;
 }
 
 .project-card {
@@ -464,6 +490,17 @@ section {
     height: 200px;
     overflow: hidden;
     background: linear-gradient(135deg, var(--gunmetal), var(--obsidian));
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.1);
 }
 
 .project-placeholder {
@@ -519,6 +556,7 @@ section {
 
 .project-info {
     padding: 1.5rem;
+    overflow: visible;
 }
 
 .project-title {
@@ -528,6 +566,9 @@ section {
     margin-bottom: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.2;
 }
 
 .project-description {
@@ -863,7 +904,6 @@ section {
     .hero-controller {
         display: none;
     }
-}
 
     .social-links {
         gap: 1rem;
@@ -921,5 +961,22 @@ html {
 
 ::-webkit-scrollbar-corner {
     background: var(--obsidian) !important;
+}
+
+/* ============================================
+   CURSOR TRAIL EFFECT
+   ============================================ */
+.cursor-dot {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: var(--volt-orange);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    box-shadow: 0 0 10px var(--volt-orange), 0 0 20px var(--solar-flare);
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0.8;
 }
 
