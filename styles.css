@@ -464,9 +464,12 @@ section {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Prevent 1-2 cards from stretching too wide on large screens */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 360px));
     gap: 2rem;
     margin-top: 0;
+    justify-content: center;
+    justify-items: center;
 }
 
 .project-card {
@@ -476,6 +479,8 @@ section {
     overflow: hidden;
     transition: all 0.3s ease;
     position: relative;
+    width: 100%;
+    max-width: 360px;
 }
 
 .project-card:hover {
